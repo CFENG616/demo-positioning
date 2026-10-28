@@ -1,0 +1,89 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.pos-static,
+.pos-relative,
+.pos-fixed,
+.pos-sticky,
+.pos-absolute {
+    background-color: lightgray;
+    padding: 1rem;
+}
+
+.box {
+    background-color: forestgreen;
+    border: 1px solid #000;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    width: 300px;
+}
+
+/* position relative */
+/* 可以控制元素above其他的，比如关闭icon */
+
+.pos-relative .box:nth-of-type(2) {
+    position: relative;
+    top: -50px;
+    left: 100px;
+}
+
+/* position absolute */
+/* 这个可以让menu不要随着屏幕缩小而wrap？ */
+
+/* .pos-absolute .box:first-of-type {
+    position: absolute;
+} */
+
+/* Adding position:relative to the parent makes the absolute element start in this container */
+/* If I don't have this property, the absolute element is positioned to the body element */
+
+.pos-absolute {
+    position: relative;
+}
+
+.pos-absolute .box:nth-of-type(2) {
+    background-color: tomato;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+
+/* We can change or overwrite this maybe in media query */
+/* This sets the red box back to default position */
+/* 这个是让box回到初始状态 */
+
+.pos-absolute .box:nth-of-type(2) {
+    position: static;
+    position: unset;
+}
+
+/* position fixed */
+/* 这个可以被用于chat cta，跟着屏幕走，让用户一直可以看到 */
+
+.pos-fixed .box:last-of-type {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+/* position sticky */
+/* 滚到一个位置然后粘住不动，感觉可以做比较fancy的页面动效？ */
+/* used for a subheading that allows the content to scroll underneath it */
+/* Needs sibling to scroll */
+
+.pos-sticky {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+}
+
+/* position sticky need sibling elements to scroll under it therefore it also needs a background color */
+/* The top bottom left right properties is where this will sticky to once it hits that postion */
